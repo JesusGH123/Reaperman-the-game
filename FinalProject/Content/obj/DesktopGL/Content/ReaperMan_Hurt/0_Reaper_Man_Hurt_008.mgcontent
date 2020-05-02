@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Hurt/0_Reaper_Man_Hurt_008.png</SourceFile>
-  <SourceTime>2020-04-30T18:29:06.4984948-05:00</SourceTime>
-  <DestFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/ReaperMan_Hurt/0_Reaper_Man_Hurt_008.xnb</DestFile>
-  <DestTime>2020-04-30T19:18:42.2968485-05:00</DestTime>
+  <SourceFile>C:/Users/tonyd/OneDrive/Documentos/Tec Semesters/4th Semester (Feb 2020)-LAPTOP-7RUKSC5C/OOP/OOP_FinalProject/FinalProject/Content/ReaperMan_Hurt/0_Reaper_Man_Hurt_008.png</SourceFile>
+  <SourceTime>2020-04-30T19:36:17.2053601-05:00</SourceTime>
+  <DestFile>C:/Users/tonyd/OneDrive/Documentos/Tec Semesters/4th Semester (Feb 2020)-LAPTOP-7RUKSC5C/OOP/OOP_FinalProject/FinalProject/Content/bin/DesktopGL/Content/ReaperMan_Hurt/0_Reaper_Man_Hurt_008.xnb</DestFile>
+  <DestTime>2020-04-30T19:55:45.2022766-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
