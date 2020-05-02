@@ -7,15 +7,23 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace FinalProject
 {
+    enum actions { run, dye, damage};     
     class Hero
     {
-        BasicAnimatedSprite sprite1;
-        public Hero()
+        BasicAnimatedSprite sprite1;     // Reaper man   
+        Point velocity;
+
+        bool hasJumped = false;
+
+        public Hero(Rectangle pos)
         {
-            sprite1 = new BasicAnimatedSprite(new Rectangle(100, 100, 100, 100), 900, 900);
+            //this.pos = pos;
+
+            sprite1 = new BasicAnimatedSprite(pos, 900, 900);        
         }
         public void LoadContent(ContentManager Content)
         {
@@ -25,6 +33,8 @@ namespace FinalProject
         public void Update(GameTime gameTime)
         {
             sprite1.Update(gameTime);
+            
+            // Search for the jump
         }
 
         public void Draw(SpriteBatch spriteBatch)

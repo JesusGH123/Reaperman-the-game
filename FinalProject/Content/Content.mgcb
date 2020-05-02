@@ -685,3 +685,9 @@
 /processorParam:TextureFormat=Color
 /build:ReaperMan_Running/0_Reaper_Man_Running_011.png
 
+#begin song.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:song.mp3
+

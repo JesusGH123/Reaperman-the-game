@@ -172,3 +172,16 @@ C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.c
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.csproj.CopyComplete
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.exe
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.pdb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_00.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_02.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_03.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_04.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_05.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_06.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_07.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_08.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_09.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_10.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\song.ogg
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\song.xnb

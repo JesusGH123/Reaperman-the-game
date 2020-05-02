@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jesus/Downloads/FinalProject/FinalProject/Content/ReaperMan_Running/0_Reaper_Man_Running_008.png</SourceFile>
-  <SourceTime>2019-08-07T03:22:33.1540243-05:00</SourceTime>
-  <DestFile>C:/Users/Jesus/Downloads/FinalProject/FinalProject/Content/bin/DesktopGL/ReaperMan_Running/0_Reaper_Man_Running_008.xnb</DestFile>
-  <DestTime>2020-04-30T16:26:47.6178001-05:00</DestTime>
+  <SourceFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Running/0_Reaper_Man_Running_008.png</SourceFile>
+  <SourceTime>2020-04-30T18:29:07.8888266-05:00</SourceTime>
+  <DestFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/ReaperMan_Running/0_Reaper_Man_Running_008.xnb</DestFile>
+  <DestTime>2020-05-02T00:11:58.3698611-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

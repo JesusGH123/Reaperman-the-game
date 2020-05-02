@@ -11,13 +11,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    class BasicAnimatedSprite
+    public class BasicAnimatedSprite
     {
         Rectangle pos;
         Texture2D texture;
         ArrayList sprites;
 
-        float timer, timePerFrame = 1/12;
+        float timer, timePerFrame = 40f;
         int frameCount, currentFrame, frameW, frameH;
         
         public Rectangle Pos
@@ -48,7 +48,7 @@ namespace FinalProject
 
         public void Update(GameTime gameTime)
         {
-            timer = timer + (float)gameTime.ElapsedGameTime.TotalSeconds;
+            timer = timer + (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if(timer >= timePerFrame)
             {
