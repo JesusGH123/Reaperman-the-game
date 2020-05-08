@@ -4,6 +4,18 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_000.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_001.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_002.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_003.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_004.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_005.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Falling/0_Reaper_Man_Falling Down_000.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Falling/0_Reaper_Man_Falling Down_001.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Falling/0_Reaper_Man_Falling Down_002.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Falling/0_Reaper_Man_Falling Down_003.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Falling/0_Reaper_Man_Falling Down_004.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Falling/0_Reaper_Man_Falling Down_005.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png</File>
@@ -63,57 +75,6 @@
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/song.mp3</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

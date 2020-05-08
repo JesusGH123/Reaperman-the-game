@@ -17,7 +17,7 @@ namespace FinalProject
         Song song;
 
         //Variables
-        int swidth = 1080, sheight= 720;        // The width and the height of the screen
+        int swidth = 1080, sheight = 720;        // The width and the height of the screen
 
         public Game1()
         {
@@ -27,7 +27,7 @@ namespace FinalProject
             swidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             sheight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
-            theHero = new Hero(new Rectangle(80, sheight - 175 , 100, 100));
+            theHero = new Hero(new Rectangle(80, sheight - 175, 100, 100));
             background1 = new Background();
         }
 
@@ -49,6 +49,9 @@ namespace FinalProject
 
             theHero.LoadContent(Content);
             background1.LoadContent(Content);
+
+            theHero.setKeys(Keys.Space);
+
         }
 
         protected override void UnloadContent()
@@ -71,7 +74,7 @@ namespace FinalProject
         {
             background1.Draw(spriteBatch);
 
-            theHero.Draw(spriteBatch);           
+            theHero.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }
