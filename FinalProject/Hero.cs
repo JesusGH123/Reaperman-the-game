@@ -26,10 +26,7 @@ namespace FinalProject
 
         Actions actions;
 
-        bool hasJumped;
-
-
-        public Hero(Rectangle pos)
+        bool hasJumped;  public Hero(Rectangle pos)
         {
             run = new BasicAnimatedSprite(pos, 900, 900);
             initialJump = new BasicAnimatedSprite(pos, 900, 900);
