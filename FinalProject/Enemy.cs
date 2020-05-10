@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    class Enemy
+    class Enemy     //Not implemented yet
     {
         public Enemy()
         {

@@ -25,7 +25,7 @@ namespace FinalProject
             get { return pos; }
             set { pos = value; }
         }
-        public BasicAnimatedSprite(Rectangle pos, int frameW, int frameH)
+        public BasicAnimatedSprite(Rectangle pos, int frameW, int frameH)   //Receive the position and the size of the different frames
         {
             this.pos = pos;
             this.frameW = frameW;
@@ -34,7 +34,7 @@ namespace FinalProject
             sprites = new ArrayList();
         }
 
-        public void LoadContent(ContentManager Content, String dir, String filename, int frameCount)
+        public void LoadContent(ContentManager Content, String dir, String filename, int frameCount)    //Load the sprites (Soported Multiple files only)
         {
             this.frameCount = frameCount;
 
@@ -46,7 +46,7 @@ namespace FinalProject
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)       //Logic for the frame loading
         {
             timer = timer + (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
@@ -57,7 +57,7 @@ namespace FinalProject
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)       //Draw the sprites list
         {
             spriteBatch.Begin();
             spriteBatch.Draw((Texture2D) sprites[currentFrame], pos, Color.White);

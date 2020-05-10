@@ -11,10 +11,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FinalProject
 {
-    enum Actions { RUN, DYE, DAMAGE, INITIAL_JUMP, JUMP_LOOP, FALLING };
+    enum Actions { RUN, DYE, DAMAGE, INITIAL_JUMP, JUMP_LOOP, FALLING };    //Reaper man states
     class Hero
     {
-        BasicAnimatedSprite run;     // Reaper man  
+        BasicAnimatedSprite run;     
         BasicAnimatedSprite initialJump;
         BasicAnimatedSprite jumpLoop;
         BasicAnimatedSprite falling;
@@ -24,11 +24,11 @@ namespace FinalProject
         Keys jump;
         int Gravity = 25;
 
-        Actions actions;
+        Actions actions;    //Enumerator instance
 
         bool hasJumped;  public Hero(Rectangle pos)
         {
-            run = new BasicAnimatedSprite(pos, 900, 900);
+            run = new BasicAnimatedSprite(pos, 900, 900);           //States creation
             initialJump = new BasicAnimatedSprite(pos, 900, 900);
             jumpLoop = new BasicAnimatedSprite(pos, 900, 900);
             falling = new BasicAnimatedSprite(pos, 900, 900);
@@ -62,9 +62,7 @@ namespace FinalProject
             jumpLoop.LoadContent(Content, "JumpLoop_Animation", "0_Reaper_Man_Jump Loop_", 6);
             falling.LoadContent(Content, "Falling_Animation", "0_Reaper_Man_Falling Down_", 6);
 
-            velocity = new Point(0, 0); //Inicializar el incremento
-
-
+            velocity = new Point(0, 0);     //Initialize the increment
         }
 
         public void Update(GameTime gameTime)
@@ -74,24 +72,24 @@ namespace FinalProject
             jumpLoop.Update(gameTime);
             falling.Update(gameTime);
 
-            Rectangle temp = this.Pos;
-
             if (actions == Actions.JUMP_LOOP)
                 actions = Actions.FALLING;
 
             if (actions == Actions.FALLING)
                 actions = Actions.RUN;
 
-            if (hasJumped != true)
+            Rectangle temp = this.Pos;          //Temporary rectangle for moving the hero
+
+            if (hasJumped != true)      //Hero has not jumped
             {
                 if (Keyboard.GetState().IsKeyDown(jump))
                 {
-                    hasJumped = true;
-                    velocity.Y = Gravity;
+                    hasJumped = true;           //Hero jumped
+                    velocity.Y = Gravity;       
                 }
             }
 
-            if (hasJumped == true)
+            if (hasJumped == true)      //When hero jumps
             {
                 temp.Y -= velocity.Y;
                 velocity.Y -= 1;
@@ -100,24 +98,22 @@ namespace FinalProject
 
             if (temp.Y + Pos.Height >= 720)
             {
-                temp.Y = 720 - Pos.Height;  //stop falling at bottom
+                temp.Y = 720 - Pos.Height;  //Stop falling at bottom
                 hasJumped = false;
                 actions = Actions.RUN;
             }
             else
             {
-                temp.Y += 1;   //Falling
+                temp.Y += 1;                 //Falling
                 actions = Actions.FALLING;
             }
 
-
-
-            this.Pos = temp;
+            this.Pos = temp;       
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (actions == Actions.RUN)
+            if (actions == Actions.RUN)                     //Draw each state when necessary
                 run.Draw(spriteBatch);
             else if (actions == Actions.JUMP_LOOP)
                 jumpLoop.Draw(spriteBatch);
