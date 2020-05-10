@@ -15,6 +15,10 @@ namespace FinalProject
         Texture2D texture;
         Rectangle pos;
 
+        public Rectangle Pos
+        {
+            get { return pos; }
+        }
         public BasicSprite(Rectangle pos)
         {
             this.pos = pos;
@@ -27,7 +31,7 @@ namespace FinalProject
 
         public void Update(GameTime gameTime)
         {
-
+            pos.X -= 3;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -35,6 +39,11 @@ namespace FinalProject
             spriteBatch.Begin();
             spriteBatch.Draw(texture, pos, Color.White);
             spriteBatch.End();
+        }
+
+        public bool Collision(Rectangle check)
+        {
+            return pos.Intersects(check);
         }
     }
 }

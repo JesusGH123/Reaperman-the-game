@@ -4,6 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Layer_10.jpg</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/main_background.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/env_ground.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_000.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_001.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_002.png</File>
@@ -75,11 +78,6 @@
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/song.mp3</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

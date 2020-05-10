@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/env_ground.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png</File>
@@ -21,6 +22,7 @@
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_003.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_004.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Jump Loop/0_Reaper_Man_Jump Loop_005.png</File>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Layer_10.jpg</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Dying/0_Reaper_Man_Dying_000.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Dying/0_Reaper_Man_Dying_001.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/ReaperMan_Dying/0_Reaper_Man_Dying_002.png</File>
@@ -75,6 +77,8 @@
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/song.mp3</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

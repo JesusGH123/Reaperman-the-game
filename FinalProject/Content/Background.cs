@@ -16,12 +16,10 @@ namespace FinalProject
     class Background
     {
         int swidth, sheigh;             // Screen size
-        int heigh1, heigh2, heigh3;     // Different heights (NOT IMPLEMENTED YET)
 
-        ArrayList layers, coins;
+        ArrayList layers;
         Rectangle pos1, pos2;
 
-        int mapSpeed = 3;
         public Background()
         {
             layers = new ArrayList();
@@ -44,13 +42,9 @@ namespace FinalProject
 
         public void Update(GameTime gameTime)
         {
-            //Things move
-            pos1.X -= mapSpeed;
-            pos2.X -= mapSpeed;
 
-            //Rectangle tempCoin = coin.Pos;
-            //tempCoin.X -= mapSpeed;
-            //coin.Pos = tempCoin;
+            pos1.X -= 3;
+            pos2.X -= 3;
 
             if (pos1.X < -swidth) pos1.X = swidth;
             if (pos2.X < -swidth) pos2.X = swidth;
@@ -59,14 +53,13 @@ namespace FinalProject
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            for (int i = 0; i < layers.Count; i++)
+            for (int i = 0; i < 10; i++)
             {
                 spriteBatch.Draw((Texture2D)layers[i], pos1, Color.White);
                 spriteBatch.Draw((Texture2D)layers[i], pos2, Color.White);
             }
 
             spriteBatch.End();
-
         }
     }
 }

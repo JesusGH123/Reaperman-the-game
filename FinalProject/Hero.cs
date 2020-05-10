@@ -33,7 +33,7 @@ namespace FinalProject
             jumpLoop = new BasicAnimatedSprite(pos, 900, 900);
             falling = new BasicAnimatedSprite(pos, 900, 900);
 
-            actions = Actions.RUN; //Iniciar solo un enumerador
+            actions = Actions.RUN;                              //Iniciar solo un enumerador
         }
 
         public Rectangle Pos

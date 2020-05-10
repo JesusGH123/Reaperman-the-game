@@ -30,13 +30,17 @@ namespace FinalProject
         }
         public void Update(GameTime gameTime)
         {
-
+            pos.X -= 3;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(texture, pos, Color.White);
             spriteBatch.End();
+        }
+        public bool Collision(Rectangle objective)
+        {
+            return pos.Intersects(objective);
         }
     }
 }

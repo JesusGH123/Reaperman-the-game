@@ -181,8 +181,6 @@ C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Deb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_06.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_07.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_08.xnb
-C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_09.xnb
-C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_10.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\song.ogg
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\song.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Gold_1.xnb
@@ -216,3 +214,8 @@ C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Deb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Jump_Animation\0_Reaper_Man_Jump Start_003.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Jump_Animation\0_Reaper_Man_Jump Start_004.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Jump_Animation\0_Reaper_Man_Jump Start_005.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\env_ground.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Layer_10.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_10.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_09.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\env_ground.xnb
