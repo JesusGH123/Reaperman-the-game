@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,12 +13,14 @@ namespace FinalProject
 {
     class BasicSprite
     {
-        Texture2D texture;
-        Rectangle pos;
+        protected Texture2D texture;
+        protected Rectangle pos;
+        public static int mapSpeed = 3;     //The value in which the objects will move
 
         public Rectangle Pos        //Return the position value
         {
             get { return pos; }
+            set { pos = value; }
         }
         public BasicSprite(Rectangle pos)   //Receive the pos rectangle
         {
@@ -29,9 +32,9 @@ namespace FinalProject
             texture = Content.Load<Texture2D>(Filename);
         }
 
-        public void Update(GameTime gameTime)   //Move the sprite along the map
+        public virtual void Update(GameTime gameTime)
         {
-            pos.X -= 3;
+            pos.X -= mapSpeed;     //Move the sprite along the map
         }
 
         public void Draw(SpriteBatch spriteBatch)   //Draw the sprite

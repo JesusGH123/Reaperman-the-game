@@ -28,15 +28,15 @@ namespace FinalProject
         ArrayList coins, tiles;
 
         Hero theHero;                            //Reaper man
-        Background background;
+        Background background1, background2;
 
         Song song;
 
         //Variables
         int swidth = 1080, sheight = 720;        // The width and the height of the screen
-        int score = 0;
-        double timer = 0;
-        Random random = new Random();
+        int score = 0;                           // The player score
+        double timer = 0;                       
+        Random random = new Random();            // Random values initializing
 
         public Game1()
         {
@@ -49,7 +49,8 @@ namespace FinalProject
             sheight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
             theHero = new Hero(new Rectangle(80, sheight - 175, 100, 100));
-            background = new Background();
+            background1 = new Background(new Rectangle(0, 0, swidth, sheight));
+            background2 = new Background(new Rectangle(swidth, 0, swidth, sheight));
         }
 
         protected override void Initialize()
@@ -70,8 +71,9 @@ namespace FinalProject
             MediaPlayer.IsRepeating = true;          //Repeat the song (If we want to create a playlist we need to delete this)
 
             //Load the contents
-            theHero.LoadContent(Content);            
-            background.LoadContent(Content);
+            theHero.LoadContent(Content);
+            background1.LoadContent(Content);
+            background2.LoadContent(Content);
 
             theHero.setKeys(Keys.Space);             //Sets the key "Space" for the character jumping
         }
@@ -90,7 +92,8 @@ namespace FinalProject
             
             //Updates
             theHero.Update(gameTime);
-            background.Update(gameTime);
+            background1.Update(gameTime);
+            background2.Update(gameTime);
 
             //Logic
 
@@ -100,14 +103,14 @@ namespace FinalProject
 
                     for (int i = 0; i < 3; i++)                //Coins spawn in groups of 3
                     {
-                        Item coin = new Item (new Rectangle(swidth + (i * 50), (sheight - 140) - (randomCoinY * 200), 35, 35));     //Positions the coins separated between each other and in diferent heights
+                        Coin coin = new Coin (new Rectangle(swidth + (i * 50), (sheight - 140) - (randomCoinY * 200), 35, 35));     //Positions the coins separated between each other and in diferent heights
                         coin.LoadContent(Content, "Gold_1");
                         coins.Add(coin);
                     }
 
                 if (randomCoinY != 0)       // To print a tile if the platform is not in the ground
                 {
-                    BasicSprite tile = new BasicSprite(new Rectangle(random.Next(1080, 2160), (sheight - 120) - (randomCoinY * 200), 400, 80));  //Positions the tiles under the coins and in a random X
+                    Tile tile = new Tile(new Rectangle(random.Next(1080, 2160), (sheight - 120) - (randomCoinY * 200), 400, 80));  //Positions the tiles under the coins and in a random X
                     tile.LoadContent(Content, "Background/env_ground");
                     tiles.Add(tile);
                 }
@@ -117,14 +120,14 @@ namespace FinalProject
 
             for(int i = 0; i < coins.Count; i++)              //Coin logic (for every coin in the arraylist)
             {
-                ((Item)coins[i]).Update(gameTime);
+                ((Coin)coins[i]).Update(gameTime);
 
-                    if(((Item)coins[i]).Pos.X < -45)            //Remove coin when it exits from screen for avoiding lag
+                    if(((Coin)coins[i]).Pos.X < -45)            //Remove coin when it exits from screen for avoiding lag
                     {
                         coins.RemoveAt(i);
                     }
 
-                    if (((Item)coins[i]).Collision(theHero.Pos))    //If the hero collects a coin the score increases by 1 and it is removed
+                    if (((Coin)coins[i]).Collision(theHero.Pos))    //If the hero collects a coin the score increases by 1 and it is removed
                     {
                         coins.RemoveAt(i);
                         score++;
@@ -135,15 +138,15 @@ namespace FinalProject
             {
                 ((BasicSprite)tiles[i]).Update(gameTime);
 
-                if (((BasicSprite)tiles[i]).Pos.X < -400)            //Remove coin when it exits from screen
+                if (((BasicSprite)tiles[i]).Pos.X < -500)            //Remove coin when it exits from screen
                 {
                     tiles.RemoveAt(i);
                 }
 
-                if (((BasicSprite)tiles[i]).Collision(theHero.Pos))
-                {
-                    //The hero have to stay in the platform (NOT IMPLEMENTED YET)
-                }
+                //if (((BasicSprite)tiles[i]).Collision(theHero.Pos))
+                //{
+                //    //The hero have to stay in the platform (NOT IMPLEMENTED YET)
+                //}
             }
             base.Update(gameTime);
         }
@@ -151,16 +154,17 @@ namespace FinalProject
         protected override void Draw(GameTime gameTime)
         {
             //Draw the objetcs
-            background.Draw(spriteBatch);
+            background1.Draw(spriteBatch);
+            background2.Draw(spriteBatch);
             theHero.Draw(spriteBatch);
 
             for(int i = 0; i < coins.Count; i++)
             {
-                ((Item)coins[i]).Draw(spriteBatch);
+                ((Coin)coins[i]).Draw(spriteBatch);
             }
             for (int i = 0; i < tiles.Count; i++)
             {
-                ((BasicSprite)tiles[i]).Draw(spriteBatch);
+                ((Tile)tiles[i]).Draw(spriteBatch);
             }
 
             base.Draw(gameTime);
