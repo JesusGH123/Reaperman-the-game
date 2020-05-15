@@ -28,10 +28,10 @@ namespace FinalProject
 
         bool hasJumped;  public Hero(Rectangle pos)
         {
-            run = new BasicAnimatedSprite(pos, 900, 900);           //States creation
-            initialJump = new BasicAnimatedSprite(pos, 900, 900);
-            jumpLoop = new BasicAnimatedSprite(pos, 900, 900);
-            falling = new BasicAnimatedSprite(pos, 900, 900);
+            run = new BasicAnimatedSprite(pos);           //States creation
+            initialJump = new BasicAnimatedSprite(pos);
+            jumpLoop = new BasicAnimatedSprite(pos);
+            falling = new BasicAnimatedSprite(pos);
 
             actions = Actions.RUN;                              //Iniciar solo un enumerador
         }
@@ -57,10 +57,10 @@ namespace FinalProject
 
         public void LoadContent(ContentManager Content)
         {
-            run.LoadContent(Content, "Run_Animation", "0_Reaper_Man_Running_", 12);
-            initialJump.LoadContent(Content, "Jump_Animation", "0_Reaper_Man_Jump Start_", 6);
-            jumpLoop.LoadContent(Content, "JumpLoop_Animation", "0_Reaper_Man_Jump Loop_", 6);
-            falling.LoadContent(Content, "Falling_Animation", "0_Reaper_Man_Falling Down_", 6);
+            run.LoadContent(Content, "Run_Animation/0_Reaper_Man_Running_", 12, 40f);
+            initialJump.LoadContent(Content, "Jump_Animation/0_Reaper_Man_Jump Start_", 6, 40f);
+            jumpLoop.LoadContent(Content, "JumpLoop_Animation/0_Reaper_Man_Jump Loop_", 6, 40f);
+            falling.LoadContent(Content, "Falling_Animation/0_Reaper_Man_Falling Down_", 6, 40f);
 
             velocity = new Point(0, 0);     //Initialize the increment
         }

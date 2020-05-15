@@ -10,10 +10,19 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
-    class Coin : BasicSprite
+    class Coin : BasicAnimatedSprite
     {
-        public Coin(Rectangle pos) : base(pos)     //Send the item position
+
+        public Coin(Rectangle pos) : base(pos)
         {
+            
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            pos.X -= 3;
+
+            base.Update(gameTime);
         }
 
     }
