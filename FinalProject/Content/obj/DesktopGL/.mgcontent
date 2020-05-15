@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/coinSound.wav</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/Layer_10.jpg</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/main_background.png</File>
     <File>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/env_ground.png</File>

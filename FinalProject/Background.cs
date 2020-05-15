@@ -20,6 +20,11 @@ namespace FinalProject
         ArrayList layers;
         Rectangle pos;
 
+        public Rectangle Pos
+        {
+            get { return pos; }
+            set { pos = value; }
+        }
         public Background(Rectangle pos)
         {
             this.pos = pos;

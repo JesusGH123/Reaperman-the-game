@@ -14,7 +14,7 @@ namespace FinalProject
     enum Actions { RUN, DYE, DAMAGE, INITIAL_JUMP, JUMP_LOOP, FALLING };    //Reaper man states
     class Hero
     {
-        BasicAnimatedSprite run;     
+        BasicAnimatedSprite run;
         BasicAnimatedSprite initialJump;
         BasicAnimatedSprite jumpLoop;
         BasicAnimatedSprite falling;
@@ -23,16 +23,19 @@ namespace FinalProject
 
         Keys jump;
         int Gravity = 25;
+        bool hasJumped, collision;
+        Color color;
 
         Actions actions;    //Enumerator instance
 
-        bool hasJumped;  public Hero(Rectangle pos)
+        public Hero(Rectangle pos)
         {
             run = new BasicAnimatedSprite(pos);           //States creation
             initialJump = new BasicAnimatedSprite(pos);
             jumpLoop = new BasicAnimatedSprite(pos);
             falling = new BasicAnimatedSprite(pos);
 
+            collision = false;
             actions = Actions.RUN;                              //Iniciar solo un enumerador
         }
 
@@ -62,7 +65,29 @@ namespace FinalProject
             jumpLoop.LoadContent(Content, "JumpLoop_Animation/0_Reaper_Man_Jump Loop_", 6, 40f);
             falling.LoadContent(Content, "Falling_Animation/0_Reaper_Man_Falling Down_", 6, 40f);
 
+            color = Color.White;
             velocity = new Point(0, 0);     //Initialize the increment
+        }
+
+        public void ResetCollisions()
+        {
+            collision = false;
+            color = Color.White;
+
+        }
+
+        public bool Collision(Rectangle check)
+        {
+            if (this.Pos.Intersects(check) || collision)
+            {
+                Rectangle temp = this.Pos; temp.Height = Pos.Width / 2;
+                if (!temp.Intersects(check))
+                {
+
+                    collision = true;
+                }
+            }
+            return collision;
         }
 
         public void Update(GameTime gameTime)
@@ -80,35 +105,47 @@ namespace FinalProject
 
             Rectangle temp = this.Pos;          //Temporary rectangle for moving the hero
 
+            if (collision)
+            {
+                hasJumped = false;
+            }
+
             if (hasJumped != true)      //Hero has not jumped
             {
                 if (Keyboard.GetState().IsKeyDown(jump))
                 {
                     hasJumped = true;           //Hero jumped
-                    velocity.Y = Gravity;       
+                    velocity.Y = Gravity * -1;
                 }
             }
 
             if (hasJumped == true)      //When hero jumps
             {
-                temp.Y -= velocity.Y;
-                velocity.Y -= 1;
                 actions = Actions.INITIAL_JUMP;
+                temp.Y += velocity.Y;
+                velocity.Y += 1;
+            }
+            if (velocity.Y == 0)
+            {
+                actions = Actions.JUMP_LOOP;
+                hasJumped = false;
+                velocity.Y += 1;
+            }
+            if (velocity.Y > 0 && !collision)
+            {
+                actions = Actions.FALLING;
+                hasJumped = true;
+
             }
 
-            if (temp.Y + Pos.Height >= 720)
+            if (temp.Y + Pos.Height > 710)
             {
-                temp.Y = 720 - Pos.Height;  //Stop falling at bottom
+                /* temp.Y = 720 - Pos.Height; */ //Stop falling at bottom
                 hasJumped = false;
                 actions = Actions.RUN;
             }
-            else
-            {
-                temp.Y += 1;                 //Falling
-                actions = Actions.FALLING;
-            }
 
-            this.Pos = temp;       
+            this.Pos = temp;
         }
 
         public void Draw(SpriteBatch spriteBatch)
