@@ -42,12 +42,16 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractCharacter.cs" />
+    <Compile Include="AbstractSprite.cs" />
+    <Compile Include="AnimatedCharacter.cs" />
     <Compile Include="BasicAnimatedSprite.cs" />
     <Compile Include="BasicSprite.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="IMonogame.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,7 +238,7 @@
     <Content Include="Content\Jump_Animation\0_Reaper_Man_Jump Start_005.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Background\env_ground.xnb">
+    <Content Include="Content\Background\env_ground01.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Background\Layer_10.xnb">
@@ -243,7 +247,7 @@
     <Content Include="Content\Background\Layer_09.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\AnimatedCoin.xnb">
+    <Content Include="Content\AnimatedCoin01.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\coinSound.xnb">
