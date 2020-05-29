@@ -1,52 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
-
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace FinalProject
 {
-    class BasicSprite
+    class BasicSprite : AbstractSprite
     {
-        protected Texture2D texture;
-        protected Rectangle pos;
-        public static int mapSpeed = 3;     //The value in which the objects will move
+        public static int mapSpeed = 3;
 
-        public Rectangle Pos        //Return the position value
+        public BasicSprite(int x, int y, int width, int height, string filename, Color color)
         {
-            get { return pos; }
-            set { pos = value; }
-        }
-        public BasicSprite(Rectangle pos)   //Receive the pos rectangle
-        {
-            this.pos = pos;
+            pos = new Rectangle(x, y, width, height);
+            this.filename = filename;
+            this.color = color;
         }
 
-        public void LoadContent(ContentManager Content, String Filename)    //Load one single image
+        public bool Collision(Rectangle objective)
         {
-            texture = Content.Load<Texture2D>(Filename);
+            return pos.Intersects(objective);
         }
 
-        public virtual void Update(GameTime gameTime)
+        public override void LoadContent()
         {
-            pos.X -= mapSpeed;     //Move the sprite along the map
+            if (filename != null || Content != null)
+            {
+                 image = Content.Load<Texture2D>(filename + 1.ToString("00"));
+                source = new Rectangle(0, 0, image.Width, image.Height);
+            }
         }
 
-        public void Draw(SpriteBatch spriteBatch)   //Draw the sprite
+        public override void Update(GameTime gameTime)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, pos, Color.White);
-            spriteBatch.End();
         }
 
-        public bool Collision(Rectangle check)      //Collision for a basicSprite object
+        public override void Draw(GameTime gameTime)
         {
-            return pos.Intersects(check);
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(image, pos, source, color);
+                spriteBatch.End();
+            }
         }
     }
 }

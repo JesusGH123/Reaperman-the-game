@@ -10,26 +10,27 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject
 {
-    class Obstacle      //Not implemented yet
+    class Obstacle :BasicSprite
     {
-        public Obstacle()
+        public Obstacle(int x, int y, int width, int heigth, string filename, Color color)
+        : base(x, y, width, heigth, filename, color)
         {
-
         }
 
-        public void LoadContent(ContentManager Content)
+        public override void LoadContent()
         {
-
+            base.LoadContent();
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-
+            pos.X -= mapSpeed;
+            base.Update(gameTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(GameTime gameTime)
         {
-
+            base.Draw(gameTime);
         }
     }
 }

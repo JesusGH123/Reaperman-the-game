@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +12,25 @@ namespace FinalProject
 {
     class Tile : BasicSprite
     {
-        public Tile(Rectangle pos) : base(pos)
+        public Tile(int x, int y, int width, int heigth, string filename, Color color) 
+        :base(x,y, width, heigth, filename, color)
         {
+        }
+
+        public override void LoadContent()
+        {
+            base.LoadContent();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            pos.X -= mapSpeed;
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
         }
     }
 }
