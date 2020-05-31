@@ -139,7 +139,6 @@ C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Deb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Jump_Animation\0_Reaper_Man_Jump Start_003.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Jump_Animation\0_Reaper_Man_Jump Start_004.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Jump_Animation\0_Reaper_Man_Jump Start_005.xnb
-C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\env_ground.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_10.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\Layer_09.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\FinalProject.exe
@@ -148,7 +147,6 @@ C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Deb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.csproj.CopyComplete
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.exe
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\obj\Debug\FinalProject.pdb
-C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\AnimatedCoin.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\coinSound.xnb
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\Proyecto\OOP_FinalProject\FinalProject\bin\DesktopGL\AnyCPU\Debug\x86\SDL2.dll
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\Proyecto\OOP_FinalProject\FinalProject\bin\DesktopGL\AnyCPU\Debug\x64\SDL2.dll
@@ -278,3 +276,7 @@ C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\Proyecto-Respaldo\FinalProject\obj\Debug\FinalProject.csproj.CopyComplete
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\Proyecto-Respaldo\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\AnimatedCoin01.xnb
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\Proyecto-Respaldo\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\env_ground01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Background\env_ground01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\AnimatedCoin01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\menu.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\selection.xnb
