@@ -2,39 +2,52 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace FinalProject
 {
-    class BasicSprite
+    class BasicSprite : AbstractSprite
     {
-        Texture2D texture;
-        Rectangle pos;
+        public static int mapSpeed = 3;
 
-        public BasicSprite(Rectangle pos)
+        public BasicSprite(int x, int y, int width, int height, string filename, Color color)
         {
-            this.pos = pos;
+            pos = new Rectangle(x, y, width, height);
+            this.filename = filename;
+            this.color = color;
         }
 
-        public void LoadContent(ContentManager Content, String Filename)
+        public bool Collision(Rectangle objective)
         {
-            texture = Content.Load<Texture2D>(Filename);
+            return pos.Intersects(objective);
         }
 
-        public void Update(GameTime gameTime)
+        public override void LoadContent()
         {
-
+            if (filename != null || Content != null)
+            {
+                 image = Content.Load<Texture2D>(filename + 1.ToString("00"));
+                source = new Rectangle(0, 0, image.Width, image.Height);
+            }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Update(GameTime gameTime)
         {
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, pos, Color.White);
-            spriteBatch.End();
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            if (spriteBatch != null)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(image, pos, source, color);
+                spriteBatch.End();
+            }
         }
     }
 }

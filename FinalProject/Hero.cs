@@ -2,34 +2,129 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
-namespace FinalProject
+namespace FinalProject 
 {
-    class Hero
+   
+    class Hero : AnimatedCharacter
     {
-        BasicAnimatedSprite sprite1;
-        public Hero()
+        Keys jump; 
+        int Gravity = 25;
+        bool hasJumped/*, collision*/;
+        //Color color;
+
+          //Enumerator instance
+
+        public Hero(int x, int y, int width, int height, int incX, int incY)
+        :base(x,y,width, height, incX, incY)
         {
-            sprite1 = new BasicAnimatedSprite(new Rectangle(100, 100, 100, 100), 900, 900);
-        }
-        public void LoadContent(ContentManager Content)
-        {
-            sprite1.LoadContent(Content, "Run_animation", "0_Reaper_Man_Running_", 12);
+            LoadMoveSprites(Actions.RUN, x, y, width, height, "0_Reaper_Man_Running_", Color.White, "Run_Animation", 12, .05f);
+            LoadMoveSprites(Actions.INITIAL_JUMP, x, y, width, height, "0_Reaper_Man_Jump Start_", Color.White, "Jump_Animation", 6, .05f);
+            LoadMoveSprites(Actions.JUMP_LOOP, x, y, width, height, "0_Reaper_Man_Jump Loop_", Color.White, "JumpLoop_Animation", 6, .05f);
+            LoadMoveSprites(Actions.FALLING, x, y, width, height, "0_Reaper_Man_Falling Down_", Color.White, "Falling_Animation", 6, .05f);
+
+            //velocity = new Point(0, 0);
+            collision = false;
+                                      
         }
 
-        public void Update(GameTime gameTime)
+
+        public void SetKeys(Keys jump)
         {
-            sprite1.Update(gameTime);
+            this.jump = jump;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void LoadContent() //Iherited Method from AnimatedCharacter
         {
-            sprite1.Draw(spriteBatch);
+            base.LoadContent();
+        }
+
+
+        public void ResetCollisions()
+        {
+            collision = false;
+
+        }
+
+        public bool DirectionalCollision(Rectangle check) //Add this method in AnimatedCharacter
+        {
+            if (this.Pos.Intersects(check) || collision)
+            {
+                Rectangle temp = this.Pos; temp.Height = Pos.Width / 2;
+                if (!temp.Intersects(check))
+                {
+
+                    collision = true;
+                }
+            }
+            return collision;
+        }
+
+        public override void Update(GameTime gameTime) //Iherited Method from AnimatedCharacter
+        {
+
+            if (actions == Actions.JUMP_LOOP)
+                actions = Actions.FALLING;
+
+            else if (actions == Actions.FALLING)
+                actions = Actions.RUN;
+
+            Rectangle temp = this.Pos;          //Temporary rectangle for moving the hero
+
+            if (collision)
+            {
+                hasJumped = false;
+            }
+
+            if (hasJumped != true)      //Hero has not jumped
+            {
+                if (Keyboard.GetState().IsKeyDown(jump))
+                {
+                    hasJumped = true;           //Hero jumped
+                    inc.Y = Gravity * -1;
+                }
+            }
+
+            if (hasJumped == true)      //When hero jumps
+            {
+                actions = Actions.INITIAL_JUMP;
+                temp.Y += inc.Y;
+                inc.Y += 1;
+            }
+            if (inc.Y == 0)
+            {
+                actions = Actions.JUMP_LOOP;
+                hasJumped = false;
+                inc.Y += 1;
+            }
+            if (inc.Y > 0 && !collision)
+            {
+                actions = Actions.FALLING;
+                hasJumped = true;
+
+            }
+
+            if (temp.Y + Pos.Height > 710)
+            {
+                /* temp.Y = 720 - Pos.Height; */ //Stop falling at bottom
+                hasJumped = false;
+                actions = Actions.RUN;
+            }
+
+            this.Pos = temp;
+
+            base.Update(gameTime); //Load method updates to all BAS objects
+        }
+
+        public override void Draw(GameTime gameTime) //Iherited Method from AnimatedCharacter
+        {
+            base.Draw(gameTime);
         }
 
     }
