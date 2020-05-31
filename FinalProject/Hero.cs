@@ -14,9 +14,6 @@ namespace FinalProject
    
     class Hero : AnimatedCharacter
     {
-
-       
-
         Keys jump; 
         int Gravity = 25;
         bool hasJumped/*, collision*/;
