@@ -31,7 +31,7 @@ namespace FinalProject
         Obstacle dynamite;
         BasicSprite coinDraw;                    //The coin of the score
         Song song;
-        SoundEffect coinSound;
+        SoundEffect coinSound, bombSound;
         Texture2D menu, selection;
 
         Rectangle pos, posplay, posscore;        // rectangles of selection (Fer, 14/05/2020)
@@ -48,9 +48,7 @@ namespace FinalProject
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-
-          
+            Content.RootDirectory = "Content";      
         }
 
         protected override void Initialize()
@@ -78,8 +76,9 @@ namespace FinalProject
             AbstractSprite.SetContentManager(Content); //Esto lo tenemos que hacer para que carge el contendio 
             AbstractSprite.SetSpriteBatch(spriteBatch); //Y esto como es estatico le va a servir a todos los objetos
 
-            //song = Content.Load<Song>("song");      //Song
-            //coinSound = Content.Load<SoundEffect>("CoinSound");
+            song = Content.Load<Song>("song");      //Song
+            coinSound = Content.Load<SoundEffect>("CoinSound");
+            bombSound = Content.Load<SoundEffect>("bomb");
             MediaPlayer.Play(song);
             MediaPlayer.IsRepeating = true;          //Repeat the song (If we want to create a playlist we need to delete this)
 
@@ -101,9 +100,7 @@ namespace FinalProject
             pos = new Rectangle(0, 0, swidth, sheight);
             selection = Content.Load<Texture2D>("selection");
             posplay = new Rectangle(selectx, selecty, 60, 40);
-            //posscore = new Rectangle(selectxs, selectys, 60, 40);
-
-          
+            posscore = new Rectangle(selectxs, selectys, 60, 40);    
         }
 
         protected override void UnloadContent()
@@ -151,7 +148,7 @@ namespace FinalProject
 
                 timer = timer + (float)gameTime.ElapsedGameTime.TotalSeconds;      //Timer for game events
 
-                if (timer > 3)      //Coins spawn every 5 seconds
+                if (timer > 3)      //Spawn things randomly every 3 seconds
                 {
 
                     int randomTileY = random.Next(0, 3);        // The height in which the tile will spawn (RANDOM)
@@ -160,7 +157,7 @@ namespace FinalProject
                     {
                         for (int i = 0; i < 3; i++)
                         {
-                            Tile tile = new Tile(random.Next(swidth, 2 * swidth), (sheight - 120) - (randomTileY * 200), 400, 60, "Background/env_ground", Color.White);  //Positions the tiles under the coins and in a random X
+                            Tile tile = new Tile(random.Next(swidth, 2 * swidth), (sheight - 120) - (randomTileY * 200), 400, 40, "Background/env_ground", Color.White);  //Positions the tiles under the coins and in a random X
                             tile.LoadContent();
                             tiles.Add(tile);
                         }
@@ -173,19 +170,19 @@ namespace FinalProject
                         coins.Add(coin);
                     }
 
-                    timer = timer - 5;          //Reset timer
+                    timer = timer - 3;          //Reset timer
                 }
 
                 timerObstacle = timerObstacle + (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (timerObstacle > 5)
+                int bombTime = random.Next(5, 15);
+                
+                if (timerObstacle > bombTime)
                 {
-                    for (int i = 0; i < 1; i++)
-                    {
-                        Obstacle dynamite = new Obstacle(swidth, sheight - 110, 50, 50);
+                        Obstacle dynamite = new Obstacle(swidth, sheight - 110, 40, 30);
                         dynamite.LoadContent();
                         dynamites.Add(dynamite);
-                    }
+
                     timerObstacle = timerObstacle - random.Next(3, 5);
                 }
 
@@ -201,7 +198,7 @@ namespace FinalProject
                     if (((Coin)coins[i]).Collision(theHero.Pos))    //If the hero collects a coin the score increases by 1 and it is removed
                     {
                         coins.RemoveAt(i);
-                        //coinSound.Play();
+                        coinSound.Play();
                     }
                 }
                
@@ -213,17 +210,16 @@ namespace FinalProject
                     if (((Obstacle)dynamites[i]).Pos.X < -60)            //Remove a obstacle when it exits from screen for avoiding lag
                     {
                         dynamites.RemoveAt(i);
-
                     }
                     
                     if (((Obstacle)dynamites[i]).Collision(theHero.Pos) && (theHero.Collision(((Obstacle)dynamites[i]).Pos)))
                     {
                         
                         timerExplode = timerExplode + (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (timerExplode > .2)
-                        {
-                         
+                        if (timerExplode > 0.2)
+                        {               
                             dynamites.RemoveAt(i);
+                            bombSound.Play();
                             theHero.Lives--; 
                             timerExplode = 0;
                         }
@@ -242,7 +238,7 @@ namespace FinalProject
                     }
                 }
 
-                if (theHero.Lives == 0)  //GAME OVER
+                if (theHero.Lives == 0)  //GAME OVER    (Variables must be restarted)
                 {
                     screen = 0; //And return to initial screen
                 }

@@ -17,8 +17,6 @@ namespace FinalProject
             this.LoadNormalSprite(x, y, width, height, "dinamita_", Color.White);
             this.LoadAnimatedSprite(State.EXPLODE, x, y, width, height, "fire_", Color.White, 16, 1, 0.0f, 64, 64);
             collision = false;
-
-           
         }
 
         public bool Collision(Rectangle RectIn)
