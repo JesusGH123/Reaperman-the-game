@@ -14,17 +14,28 @@ namespace FinalProject
     class BasicSprite : AbstractSprite
     {
         public static int mapSpeed = 3;
+        bool collision;
 
         public BasicSprite(int x, int y, int width, int height, string filename, Color color)
         {
             pos = new Rectangle(x, y, width, height);
             this.filename = filename;
             this.color = color;
+            collision = false;
         }
 
         public bool Collision(Rectangle objective)
         {
-            return pos.Intersects(objective);
+            if(pos.Intersects(objective))
+            collision = true;
+
+            return collision;
+        }
+
+        public void ResetCollisions()
+        {
+            collision = false;
+
         }
 
         public override void LoadContent()
@@ -45,7 +56,7 @@ namespace FinalProject
             if (spriteBatch != null)
             {
                 spriteBatch.Begin();
-                spriteBatch.Draw(image, pos, source, color);
+                   spriteBatch.Draw(image, pos, source, color);
                 spriteBatch.End();
             }
         }
