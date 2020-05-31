@@ -24,6 +24,7 @@ namespace FinalProject
         protected BasicAnimatedSprite run, initialJump, jumpLoop, falling;
         protected Actions actions;
         protected Point inc;
+        protected int lives;
 
         //Properties
         public Rectangle Pos
@@ -37,6 +38,21 @@ namespace FinalProject
                
             }
             get { return run.Pos; }
+        }
+
+      
+
+        public int Lives   //properties to increment and decrement character lives
+        {
+            set
+            {
+                lives = value;
+            }
+
+            get
+            {
+                return lives;
+            }
         }
 
         // Methods

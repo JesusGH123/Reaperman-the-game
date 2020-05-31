@@ -32,6 +32,7 @@ namespace FinalProject
             get { return pos; }
         }
 
+
         public static void SetSpriteBatch(SpriteBatch spriteBatchIn)
         {
             spriteBatch = spriteBatchIn;

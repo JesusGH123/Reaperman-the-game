@@ -11,29 +11,38 @@ using Microsoft.Xna.Framework.Media;
 
 namespace FinalProject 
 {
-   
+
     class Hero : AnimatedCharacter
     {
-        Keys jump; 
+        Keys jump;
         int Gravity = 25;
+        bool collisionObstacle;
         bool hasJumped/*, collision*/;
-        //Color color;
+        private Color color;
 
-          //Enumerator instance
+        //Enumerator instance
 
-        public Hero(int x, int y, int width, int height, int incX, int incY)
-        :base(x,y,width, height, incX, incY)
+        public Hero(int x, int y, int width, int height, int incX, int incY, Color color)
+        : base(x, y, width, height, incX, incY)
         {
-            LoadMoveSprites(Actions.RUN, x, y, width, height, "0_Reaper_Man_Running_", Color.White, "Run_Animation", 12, .05f);
-            LoadMoveSprites(Actions.INITIAL_JUMP, x, y, width, height, "0_Reaper_Man_Jump Start_", Color.White, "Jump_Animation", 6, .05f);
-            LoadMoveSprites(Actions.JUMP_LOOP, x, y, width, height, "0_Reaper_Man_Jump Loop_", Color.White, "JumpLoop_Animation", 6, .05f);
-            LoadMoveSprites(Actions.FALLING, x, y, width, height, "0_Reaper_Man_Falling Down_", Color.White, "Falling_Animation", 6, .05f);
+            
+            LoadMoveSprites(Actions.RUN, x, y, width, height, "0_Reaper_Man_Running_", color, "Run_Animation", 12, .05f);
+            LoadMoveSprites(Actions.INITIAL_JUMP, x, y, width, height, "0_Reaper_Man_Jump Start_", color, "Jump_Animation", 6, .05f);
+            LoadMoveSprites(Actions.JUMP_LOOP, x, y, width, height, "0_Reaper_Man_Jump Loop_", color, "JumpLoop_Animation", 6, .05f);
+            LoadMoveSprites(Actions.FALLING, x, y, width, height, "0_Reaper_Man_Falling Down_", color, "Falling_Animation", 6, .05f);
 
             //velocity = new Point(0, 0);
             collision = false;
-                                      
+            collisionObstacle = false;
+
+
         }
 
+        //public Color Color
+        //{
+        //    set { color = value; }
+        //    get { return color; }
+        //}
 
         public void SetKeys(Keys jump)
         {
@@ -49,17 +58,39 @@ namespace FinalProject
         public void ResetCollisions()
         {
             collision = false;
+        }
+
+        public void ResetCollisionsObstacle()
+        {
+
+            collisionObstacle = false;
 
         }
+
+        public bool Collision(Rectangle checkColl)
+        {
+
+            if (pos.Intersects(checkColl))
+
+            {
+                collisionObstacle = true;
+               
+            }
+
+            return collisionObstacle;
+        }
+
+       
 
         public bool DirectionalCollision(Rectangle check) //Add this method in AnimatedCharacter
         {
             if (this.Pos.Intersects(check) || collision)
             {
+                
                 Rectangle temp = this.Pos; temp.Height = Pos.Width / 2;
                 if (!temp.Intersects(check))
                 {
-
+                   
                     collision = true;
                 }
             }
@@ -77,8 +108,13 @@ namespace FinalProject
 
             Rectangle temp = this.Pos;          //Temporary rectangle for moving the hero
 
+            if (collisionObstacle){
+                color = Color.Red;
+            }
+
             if (collision)
             {
+                
                 hasJumped = false;
             }
 
