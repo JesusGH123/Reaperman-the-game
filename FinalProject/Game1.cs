@@ -3,9 +3,10 @@
         Antonio Misael Delgado Salmeron
         Maria Fernanda Yañez Zavala         
     
-    Current version: Alpha 2.1
+    Current version: Alpha 4.1.1
 
 */
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,8 +24,9 @@ namespace FinalProject
         SpriteBatch spriteBatch;
 
         //Game elements
-        ArrayList coins, tiles, dynamites;
+        ArrayList coins, tiles, dynamites, enemies;
 
+        Enemy enemy;
         Hero theHero;                            //Reaper man
         Background background1, background2;
         //Obstacle obstacle;
@@ -33,12 +35,14 @@ namespace FinalProject
         Song song;
         SoundEffect coinSound, bombSound;
         Texture2D menu, selection;
+        BasicSprite danger;
+        bool showEnemies = false;
 
         Rectangle pos, posplay, posscore;        // rectangles of selection (Fer, 14/05/2020)
 
         //Variables
         int swidth, sheight;        // The width and the height of the screen                       // The player score
-        double timer = 0, timerObstacle = 0, timerExplode = 0;                      
+        double timer = 0, timerObstacle = 0, timerExplode = 0, timerEnemy=0, timerExplodeEnemy=0, timerEnemiesAppear=0;                      
         Random random = new Random();            // Random values initializing
 
         int screen = 0;                           // The screen in which the the player is (Fer, 14/05/2020)
@@ -58,7 +62,7 @@ namespace FinalProject
 
             graphics.PreferredBackBufferWidth = swidth;
             graphics.PreferredBackBufferHeight = sheight;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
 
             graphics.ApplyChanges();
 
@@ -70,29 +74,30 @@ namespace FinalProject
             coins = new ArrayList();
             tiles = new ArrayList();
             dynamites = new ArrayList();
+            enemies = new ArrayList();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            AbstractSprite.SetContentManager(Content); //Esto lo tenemos que hacer para que carge el contendio 
-            AbstractSprite.SetSpriteBatch(spriteBatch); //Y esto como es estatico le va a servir a todos los objetos
+            AbstractSprite.SetContentManager(Content); //We send the content to the spriteBatch
+            AbstractSprite.SetSpriteBatch(spriteBatch);
 
-            song = Content.Load<Song>("song");      //Song
+            song = Content.Load<Song>("song");                       //Song and sounds
             coinSound = Content.Load<SoundEffect>("CoinSound");
             bombSound = Content.Load<SoundEffect>("bomb");
+
             MediaPlayer.Play(song);
-            MediaPlayer.IsRepeating = true;          //Repeat the song (If we want to create a playlist we need to delete this)
+            MediaPlayer.IsRepeating = true;          //Repeat the song when it ends
 
             theHero = new Hero(80, sheight - 140, 100, 100, 0, 0, Color.White);
-             
-
             background1 = new Background(0, 0, swidth, sheight,"Background/Layer_",Color.White);
             background2 = new Background(swidth, 0, swidth, sheight, "Background/Layer_", Color.White);
+            danger = new BasicSprite(swidth / 2, sheight / 6, 50, 50,"danger_", Color.White);
 
             //Load the contents
             theHero.LoadContent();
-
             background1.LoadContent();
             background2.LoadContent();
+            danger.LoadContent();
 
             theHero.SetKeys(Keys.Space);             //Sets the key "Space" for the character jumping
 
@@ -100,7 +105,8 @@ namespace FinalProject
             pos = new Rectangle(0, 0, swidth, sheight);
             selection = Content.Load<Texture2D>("selection");
             posplay = new Rectangle(selectx, selecty, 60, 40);
-            posscore = new Rectangle(selectxs, selectys, 60, 40);    
+            posscore = new Rectangle(selectxs, selectys, 60, 40);
+
         }
 
         protected override void UnloadContent()
@@ -117,12 +123,17 @@ namespace FinalProject
             theHero.Update(gameTime);
             background1.Update(gameTime);
             background2.Update(gameTime);
+            danger.Update(gameTime);
+
             theHero.ResetCollisions();
 
             if (screen == 0) //logic to switch between game screens (Fer, 14/05/2020)
             {
-                theHero.Lives = 3; //Put number of lives
-                 
+                theHero.Lives = 3; //Assign number of lives
+
+                bool showEnemies = false;
+
+                //Some of the menu behaviour
                 if (Keyboard.GetState().IsKeyDown(Keys.Down) && (posplay.X == selectx) && (posplay.Y == selecty))
                 {
                     posplay = posscore;
@@ -136,16 +147,13 @@ namespace FinalProject
 
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter) && (posplay.X == selectx) && (posplay.Y == selecty))
                 {
-                    screen = 1; // select the screen, if we want to start the game or see the scores (Fer, 14/05/2020)
+                    screen = 1; //Select the screen, if we want to start the game or see the scores (Fer, 14/05/2020)
                 }
             }
 
-            //Logic
-
+            // Game logic
             if (screen == 1)
             {
-               
-
                 timer = timer + (float)gameTime.ElapsedGameTime.TotalSeconds;      //Timer for game events
 
                 if (timer > 3)      //Spawn things randomly every 3 seconds
@@ -174,16 +182,40 @@ namespace FinalProject
                 }
 
                 timerObstacle = timerObstacle + (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                int bombTime = random.Next(5, 15);
                 
-                if (timerObstacle > bombTime)
+                if (timerObstacle > 8)      //Check this condition
                 {
-                        Obstacle dynamite = new Obstacle(swidth, sheight - 110, 40, 30);
+                        Obstacle dynamite = new Obstacle(swidth, sheight - 110, 60, 15);    //Spawn dinamite
                         dynamite.LoadContent();
-                        dynamites.Add(dynamite);
+                        dynamites.Add(dynamite);                  
 
                     timerObstacle = timerObstacle - random.Next(3, 5);
+                }
+
+                timerEnemiesAppear = timerEnemiesAppear + (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timerEnemiesAppear > 15)        //Spawn enemies
+                {
+                     showEnemies = true;
+
+                    if (showEnemies)
+                    {
+                        timerEnemy = timerEnemy + (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                        if (timerEnemy > 2)
+                        {
+                            Enemy enemy = new Enemy(swidth, 100 * random.Next(1, 5), 100, 100);
+                            enemy.LoadContent();
+                            enemies.Add(enemy);
+
+                            timerEnemy = timerEnemy - 2;
+                        }
+                    }
+                    if (timerEnemiesAppear >= 25)
+                    {
+                        timerEnemiesAppear = 0;
+                        showEnemies = false;
+                    }
                 }
 
                 for (int i = 0; i < coins.Count; i++)              //Coin logic (for every coin in the arraylist)
@@ -201,7 +233,28 @@ namespace FinalProject
                         coinSound.Play();
                     }
                 }
-               
+
+                for (int i = 0; i < enemies.Count; i++)              //Enemy logic
+                {
+                    ((Enemy)enemies[i]).Update(gameTime);
+
+                    if (((Enemy)enemies[i]).Collision(theHero.Pos))
+                    {
+                        timerExplodeEnemy = timerExplodeEnemy + (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (timerExplodeEnemy > 0.2 * 2)
+                        {
+                            enemies.RemoveAt(i);    //Death animation
+                            theHero.Lives--;
+
+                            timerExplodeEnemy = 0;
+                        }
+                    }                  
+                   
+                    if (((Enemy)enemies[i]).Pos.X < - 120)          //Remove an enemy when it exits from screen for avoiding lag
+                    {
+                        enemies.RemoveAt(i);
+                    }
+                }
 
                 for (int i = 0; i < dynamites.Count; i++)              //Obstacle logic (for every coin in the arraylist)
                 {
@@ -212,7 +265,7 @@ namespace FinalProject
                         dynamites.RemoveAt(i);
                     }
                     
-                    if (((Obstacle)dynamites[i]).Collision(theHero.Pos) && (theHero.Collision(((Obstacle)dynamites[i]).Pos)))
+                    if (((Obstacle)dynamites[i]).Collision(theHero.Pos))
                     {
                         
                         timerExplode = timerExplode + (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -241,9 +294,7 @@ namespace FinalProject
                 if (theHero.Lives == 0)  //GAME OVER    (Variables must be restarted)
                 {
                     screen = 0; //And return to initial screen
-                }
-
-                
+                }      
             }
             base.Update(gameTime);
         }
@@ -260,10 +311,9 @@ namespace FinalProject
 
             if (screen == 1)
             {
-                //Draw the objetcs
+                                                     //Draw the objetcs
                 background1.Draw(gameTime);
-                background2.Draw(gameTime);
-                
+                background2.Draw(gameTime);            
 
                 for (int i = 0; i < tiles.Count; i++)
                 {
@@ -273,12 +323,21 @@ namespace FinalProject
                 {
                     ((Coin)coins[i]).Draw(gameTime);
                 }
+          
+                theHero.Draw(gameTime);
 
                 for (int i = 0; i < dynamites.Count; i++)
                 {
                     ((Obstacle)dynamites[i]).Draw(gameTime);
                 }
-                theHero.Draw(gameTime);
+
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    ((Enemy)enemies[i]).Draw(gameTime);
+                }
+
+                if(showEnemies)                             //Draw the danger sign
+                danger.Draw(gameTime);
             }
 
             base.Draw(gameTime);

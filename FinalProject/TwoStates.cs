@@ -30,7 +30,7 @@ namespace FinalProject
             set              //En la clase bomb el cual se llama Colision
             {
                 if (normalSpriteType)
-                    normalSprite.Pos = value; //Aqui la clase Wrapper nos da la posibilidad de poder elegir 
+                    normalSprite.Pos = value; //Aqui la clase TwoStates nos da la posibilidad de poder elegir 
                 else                        //la opcion de que tenga un contenido estatico y animado, si me da esa opcion por eso
                 {                           //Debo de agregar codigo para poder especificar despues que propiedad voy a devolver
                     normalAnimSprite.Pos = value;
@@ -71,7 +71,7 @@ namespace FinalProject
         }
         public void LoadAnimatedSprite(State currentState, int x, int y, int width, int height, string filename, Color color, string dirname, int frames, float timeFrame)
         {
-            if (currentState == State.NORMAL)  //Para cargar archivos de spriteSheets
+            if (currentState == State.NORMAL)  //Para cargar multiples archivos
             {
                 normalAnimSprite = new BasicAnimatedSprite(x, y, width, height, filename, color, dirname, frames, timeFrame);
                 normalSpriteType = false;

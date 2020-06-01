@@ -95,7 +95,7 @@ namespace FinalProject
                     for (int k = 0; k < frameCount; k++)
                     {
                         Texture2D tex;
-                        tex = Content.Load<Texture2D>(dirname + "/" + filename + k.ToString("000"));
+                         tex = Content.Load<Texture2D>(dirname + "/" + filename + k.ToString("000"));
                         textureList.Add(tex);
 
                         // NOTE: Assume that all textures (when using multiple textures) are the same size (size of image)
