@@ -21,6 +21,7 @@ namespace FinalProject
         {      
             pos = new Rectangle(x, y, width, height);
             inc = new Point(incX, incY);
+            
         }
 
         public void LoadStandSprites(Actions currentDirection, int x, int y, int width, int height, string filename, Color color)
