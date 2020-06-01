@@ -17,6 +17,11 @@ namespace FinalProject
     {
         int swidth, sheigh;             // Screen size
 
+        Texture2D hudlife3;
+        Texture2D score;
+        Rectangle poshud;
+        Rectangle posscore;
+
         //ArrayList layers; There is an ArrayList called textureList which is inherited from AbstractSprite
         //Rectangle pos;  //It is inherited from BS
 
@@ -30,6 +35,8 @@ namespace FinalProject
         {
 
             pos = new Rectangle(x, y, width, height);
+            poshud = new Rectangle(10, 10, 300, 150);
+            posscore= new Rectangle(1000, 10, 300, 150);
 
             textureList = new ArrayList();
             swidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;  //It is already done in Game1
@@ -46,7 +53,13 @@ namespace FinalProject
                 image = Content.Load<Texture2D>(filename + i.ToString("00"));
                 textureList.Add(image);
                 source = new Rectangle(0, 0, image.Width, image.Height);
+
+                
             }
+
+            
+            hudlife3 = Content.Load<Texture2D>("life_03");
+            score = Content.Load<Texture2D>("score");
         }
 
         public override void Update(GameTime gameTime)
@@ -54,16 +67,25 @@ namespace FinalProject
             pos.X -= mapSpeed;         //Move the rectangle
 
             if (pos.X < -swidth) pos.X = swidth;    //If one of the rectangles exit from the screen move this one to the end
+
+            
         }
 
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
+
+        
+
             for (int i = 0; i < 10; i++)        //Print all the layers
             {
                 spriteBatch.Draw((Texture2D)textureList[i], pos, color);
             }
 
+            spriteBatch.Draw(hudlife3, poshud, color);
+            spriteBatch.Draw(score, posscore, color);
+
+            
             spriteBatch.End();
         }
     }
