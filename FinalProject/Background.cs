@@ -17,7 +17,7 @@ namespace FinalProject
     {
         int swidth, sheigh;             // Screen size
 
-        Texture2D hudlife3;
+        Texture2D hudlife3;             // for the HUD (Fer, 31/05/20)
         Texture2D score;
         Rectangle poshud;
         Rectangle posscore;
@@ -34,7 +34,7 @@ namespace FinalProject
             :base(x,y,width, height, filename, color)
         {
 
-            pos = new Rectangle(x, y, width, height);
+            pos = new Rectangle(x, y, width, height);              // position of the hud (Fer, 31/05/20)
             poshud = new Rectangle(10, 10, 300, 150);
             posscore= new Rectangle(1000, 10, 300, 150);
 
@@ -58,7 +58,7 @@ namespace FinalProject
             }
 
             
-            hudlife3 = Content.Load<Texture2D>("life_03");
+            hudlife3 = Content.Load<Texture2D>("life_03");       //load the hud (Fer, 31/05/20)
             score = Content.Load<Texture2D>("score");
         }
 
@@ -82,7 +82,7 @@ namespace FinalProject
                 spriteBatch.Draw((Texture2D)textureList[i], pos, color);
             }
 
-            spriteBatch.Draw(hudlife3, poshud, color);
+            spriteBatch.Draw(hudlife3, poshud, color);  //draw hud (Fer, 31/05/20)
             spriteBatch.Draw(score, posscore, color);
 
             
