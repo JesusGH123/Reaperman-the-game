@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bomb.wav","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/bomb.xnb","SoundEffectProcessor","SoundEffectContent",61804,61865,0.328122
-"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/coinSound.wav","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/coinSound.xnb","SoundEffectProcessor","SoundEffectContent",39824,39885,5.992693
-"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/song.mp3","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/song.xnb","SongProcessor","SongContent",2881965,122,3.404171
+"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/alarm.mp3","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/alarm.xnb","SongProcessor","SongContent",21507,123,0.4602871
+"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bomb.wav","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/bomb.xnb","SoundEffectProcessor","SoundEffectContent",61804,61865,7.991149
+"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/coinSound.wav","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/coinSound.xnb","SoundEffectProcessor","SoundEffectContent",39824,39885,0.8303881
+"C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/song.mp3","C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/song.xnb","SongProcessor","SongContent",2881965,122,8.163397

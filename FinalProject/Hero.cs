@@ -38,11 +38,11 @@ namespace FinalProject
 
         }
 
-        //public Color Color
-        //{
-        //    set { color = value; }
-        //    get { return color; }
-        //}
+        public Color Color
+        {
+            set { color = value; }
+            get { return color; }
+        }
 
         public void SetKeys(Keys jump)
         {
@@ -70,7 +70,7 @@ namespace FinalProject
         public bool Collision(Rectangle checkColl)
         {
 
-            if (pos.Intersects(checkColl))
+            if (Pos.Intersects(checkColl))
 
             {
                 collisionObstacle = true;

@@ -29,7 +29,7 @@ namespace FinalProject
 
         public override void LoadContent()
         {
-            base.LoadContent(); //con esto estamos cargando el metodo heredado de la clase Wrapper
+            base.LoadContent(); //con esto estamos cargando el metodo heredado de la clase TwoStates
         }
 
         public void ResetCollision()
@@ -40,9 +40,9 @@ namespace FinalProject
 
         public override void Update(GameTime gameTime) //Este metodo le hacemos override para poder editar el metodo que hemos 
         {
-            Rectangle tempPos = Pos;                                          // heredado de la clase Wrapper el cual lo tiene como virtual para que aqui lo editemos
+            Rectangle tempPos = Pos;                                          // heredado de la clase TwoStates el cual lo tiene como virtual para que aqui lo editemos
             tempPos.X -= mapSpeed;
-            if (collision)                              //Despues usamos base.Update para usar el codigo que tenemos en la clase Wrapper
+            if (collision)                              //Despues usamos base.Update para usar el codigo que tenemos en la clase TwoStates
             {
                 state = State.EXPLODE;
             }
