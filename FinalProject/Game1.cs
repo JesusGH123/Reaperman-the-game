@@ -23,8 +23,9 @@ namespace FinalProject
         SpriteBatch spriteBatch;
 
         //Game elements
-        ArrayList coins, tiles, dynamites;
+        ArrayList coins, tiles, dynamites, enemies;
 
+        Enemy enemy;
         Hero theHero;                            //Reaper man
         Background background1, background2;
         //Obstacle obstacle;
@@ -33,12 +34,14 @@ namespace FinalProject
         Song song;
         SoundEffect coinSound, bombSound;
         Texture2D menu, selection;
+        BasicSprite danger;
+        bool showEnemies = false;
 
         Rectangle pos, posplay, posscore;        // rectangles of selection (Fer, 14/05/2020)
 
         //Variables
         int swidth, sheight;        // The width and the height of the screen                       // The player score
-        double timer = 0, timerObstacle = 0, timerExplode = 0;                      
+        double timer = 0, timerObstacle = 0, timerExplode = 0, timerEnemy=0, timerExplodeEnemy=0, timerEnemiesAppear=0;                      
         Random random = new Random();            // Random values initializing
 
         int screen = 0;                           // The screen in which the the player is (Fer, 14/05/2020)
@@ -70,6 +73,7 @@ namespace FinalProject
             coins = new ArrayList();
             tiles = new ArrayList();
             dynamites = new ArrayList();
+            enemies = new ArrayList();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -100,7 +104,10 @@ namespace FinalProject
             pos = new Rectangle(0, 0, swidth, sheight);
             selection = Content.Load<Texture2D>("selection");
             posplay = new Rectangle(selectx, selecty, 60, 40);
-            posscore = new Rectangle(selectxs, selectys, 60, 40);    
+            posscore = new Rectangle(selectxs, selectys, 60, 40);
+
+            danger = new BasicSprite(swidth / 2, sheight / 6, 50, 50,"danger_", Color.White);
+            danger.LoadContent();
         }
 
         protected override void UnloadContent()
@@ -117,12 +124,15 @@ namespace FinalProject
             theHero.Update(gameTime);
             background1.Update(gameTime);
             background2.Update(gameTime);
+            danger.Update(gameTime);
+
             theHero.ResetCollisions();
 
             if (screen == 0) //logic to switch between game screens (Fer, 14/05/2020)
             {
                 theHero.Lives = 3; //Put number of lives
-                 
+                bool showEnemies = false;
+
                 if (Keyboard.GetState().IsKeyDown(Keys.Down) && (posplay.X == selectx) && (posplay.Y == selecty))
                 {
                     posplay = posscore;
@@ -179,11 +189,36 @@ namespace FinalProject
                 
                 if (timerObstacle > bombTime)
                 {
-                        Obstacle dynamite = new Obstacle(swidth, sheight - 110, 40, 30);
+                        Obstacle dynamite = new Obstacle(swidth, sheight - 110, 60, 15);
                         dynamite.LoadContent();
-                        dynamites.Add(dynamite);
+                        dynamites.Add(dynamite);                  
 
                     timerObstacle = timerObstacle - random.Next(3, 5);
+                }
+
+                timerEnemiesAppear = timerEnemiesAppear + (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (timerEnemiesAppear > 15)
+                {
+                     showEnemies = true;
+                    if (showEnemies)
+                    {
+                        timerEnemy = timerEnemy + (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                        if (timerEnemy > 2)
+                        {
+                            Enemy enemy = new Enemy(swidth, 100 * random.Next(1, 5), 100, 100);
+                            enemy.LoadContent();
+                            enemies.Add(enemy);
+
+                            timerEnemy = timerEnemy - 2;
+                        }
+                    }
+                    if (timerEnemiesAppear >= 25)
+                    {
+                        timerEnemiesAppear = 0;
+                        showEnemies = false;
+                    }
                 }
 
                 for (int i = 0; i < coins.Count; i++)              //Coin logic (for every coin in the arraylist)
@@ -201,7 +236,30 @@ namespace FinalProject
                         coinSound.Play();
                     }
                 }
-               
+
+                for (int i = 0; i < enemies.Count; i++)              //Enemy logic (for every coin in the arraylist)
+                {
+                    ((Enemy)enemies[i]).Update(gameTime);
+
+                   
+                    if (((Enemy)enemies[i]).Pos.X < -60 )          //Remove an enemy when it exits from screen for avoiding lag
+                    {
+                        enemies.RemoveAt(i);
+                    }
+
+                    if (((Enemy)enemies[i]).Collision(theHero.Pos))
+
+                    {
+                        timerExplodeEnemy = timerExplodeEnemy + (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (timerExplodeEnemy > 0.2 * 2)
+                        {
+                            enemies.RemoveAt(i);    //Death animation
+
+                            timerExplodeEnemy = 0;
+                        }
+                    }                  
+                   
+                }
 
                 for (int i = 0; i < dynamites.Count; i++)              //Obstacle logic (for every coin in the arraylist)
                 {
@@ -212,7 +270,7 @@ namespace FinalProject
                         dynamites.RemoveAt(i);
                     }
                     
-                    if (((Obstacle)dynamites[i]).Collision(theHero.Pos) && (theHero.Collision(((Obstacle)dynamites[i]).Pos)))
+                    if (((Obstacle)dynamites[i]).Collision(theHero.Pos))
                     {
                         
                         timerExplode = timerExplode + (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -273,12 +331,21 @@ namespace FinalProject
                 {
                     ((Coin)coins[i]).Draw(gameTime);
                 }
+          
+                theHero.Draw(gameTime);
 
                 for (int i = 0; i < dynamites.Count; i++)
                 {
                     ((Obstacle)dynamites[i]).Draw(gameTime);
                 }
-                theHero.Draw(gameTime);
+
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    ((Enemy)enemies[i]).Draw(gameTime);
+                }
+
+                if(showEnemies)
+                danger.Draw(gameTime);
             }
 
             base.Draw(gameTime);
