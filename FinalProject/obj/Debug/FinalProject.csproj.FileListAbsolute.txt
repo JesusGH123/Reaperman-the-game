@@ -614,3 +614,4 @@ C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Deb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\score.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\box_break.xnb
 C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\theBox_01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\heart.xnb

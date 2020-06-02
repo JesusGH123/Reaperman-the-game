@@ -17,8 +17,8 @@ namespace FinalProject
     {
         int swidth, sheigh;             // Screen size
 
-        Texture2D hudlife3;             // for the HUD (Fer, 31/05/20)
         Texture2D score;
+        Texture2D lives;
         Rectangle poshud;
         Rectangle posscore;
 
@@ -27,7 +27,7 @@ namespace FinalProject
         {
 
             pos = new Rectangle(x, y, width, height);              // position of the hud (Fer, 31/05/20)
-            poshud = new Rectangle(10, 10, 250, 150);
+            poshud = new Rectangle(10, 10, 40, 40);
             posscore= new Rectangle(1000, 10, 280, 150);
 
             textureList = new ArrayList();
@@ -39,17 +39,14 @@ namespace FinalProject
         {
             
             for (int i = 10; i >= 0; i--)
-            {
-                //texture = Content.Load<Texture2D>("Background/Layer_" + i.ToString("00"));
-                
+            {   
                 image = Content.Load<Texture2D>(filename + i.ToString("00"));
                 textureList.Add(image);
                 source = new Rectangle(0, 0, image.Width, image.Height);
-                
             }
             
-            hudlife3 = Content.Load<Texture2D>("life_03");       //load the hud (Fer, 31/05/20)
             score = Content.Load<Texture2D>("score");
+            lives = Content.Load<Texture2D>("heart");           //The new lives
         }
 
         public override void Update(GameTime gameTime)
@@ -62,14 +59,17 @@ namespace FinalProject
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();   
-
             for (int i = 0; i < 10; i++)        //Print all the layers
             {
                 spriteBatch.Draw((Texture2D)textureList[i], pos, color);
             }
-
-            spriteBatch.Draw(hudlife3, poshud, color);  //draw hud (Fer, 31/05/20)
             spriteBatch.Draw(score, posscore, color);
+
+            // i debe de ser el numero de vidas del hero pero ahorita no lo tenemos
+                for (int i = 0; i < 5; i++)
+                {
+                    spriteBatch.Draw(lives, new Rectangle((i*40)+30, 30, 40, 40), Color.White);
+                }
             
             spriteBatch.End();
         }

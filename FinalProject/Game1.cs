@@ -168,6 +168,7 @@ namespace FinalProject
                             Tile tile = new Tile(random.Next(swidth, 2 * swidth), (sheight - 120) - (randomTileY * 200), 400, 40, "Background/env_ground", Color.White);  //Positions the tiles under the coins and in a random X
                             tile.LoadContent();
                             tiles.Add(tile);
+
                             if (randomBox == 1)     // 1/5 of probability of a box to spawn over platforms
                             {
                                 Box box = new Box(tile.Pos.X + random.Next(100, 200), tile.Pos.Y - 40, 40, 40);
