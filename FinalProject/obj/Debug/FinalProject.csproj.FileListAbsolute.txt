@@ -507,3 +507,18 @@ C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\PROYECTO POO\OOP_FinalProject\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_003.xnb
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\PROYECTO POO\OOP_FinalProject\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_004.xnb
 C:\Users\tonyd\OneDrive\Documentos\Tec Semesters\4th Semester (Feb 2020)-LAPTOP-7RUKSC5C\OOP\PROYECTO POO\OOP_FinalProject\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\danger_01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Chase\chase_000.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Chase\chase_001.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Chase\chase_002.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Chase\chase_003.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Death\death_000.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Death\death_001.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Death\death_002.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_000.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_001.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_002.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_003.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\Enemy_Fly\fly_004.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\danger_01.xnb
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\alarm.ogg
+C:\Users\Jesus\Downloads\OOP_final project\FinalProject\bin\DesktopGL\AnyCPU\Debug\Content\alarm.xnb

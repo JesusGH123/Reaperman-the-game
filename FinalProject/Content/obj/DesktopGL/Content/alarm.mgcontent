@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/song.mp3</SourceFile>
-  <SourceTime>2020-05-31T23:43:17-05:00</SourceTime>
-  <DestFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/song.xnb</DestFile>
-  <DestTime>2020-06-01T00:13:38.5164033-05:00</DestTime>
+  <SourceFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/alarm.mp3</SourceFile>
+  <SourceTime>2020-06-01T01:20:25.3496767-05:00</SourceTime>
+  <DestFile>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/alarm.xnb</DestFile>
+  <DestTime>2020-06-01T01:27:27.8259383-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/song.ogg</string>
+    <string>C:/Users/Jesus/Downloads/OOP_final project/FinalProject/Content/bin/DesktopGL/Content/alarm.ogg</string>
   </BuildOutput>
 </PipelineBuildEvent>
